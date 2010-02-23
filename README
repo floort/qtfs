@@ -1,0 +1,55 @@
+If you want to stream quicktime or mpeg movies without a special
+streaming server, you need special "fast start" movies.
+Most encoders, like ffmpeg or mencoder won't create "fast start" movies
+and most tools to convert existing movies suck.
+
+This is a simple and portable Python script that converts a quicktime
+movie to a fast start streaming version.
+
+usage:
+$ qtfs.py <infile> <outfile>
+
+Technical details;
+Quicktime movies consist of so-called "atoms".
+The atom containing the index (the "moov" atom) is usualy at teh end of
+the file. To stream, you first need the "moov"
+
+Print the atom tree with like this:
+$ ./qtfs.py BOcf3mPCsbk.mp4        
+ [ftyp @0d len:32]
+ [moov @20d len:77293]
+        [mvhd @28d len:108]
+        [trak @94d len:37089]
+                [tkhd @9Cd len:92]
+                [mdia @F8d len:36989]
+                        [mdhd @100d len:32]
+                        [hdlr @120d len:45]
+                        [minf @14Dd len:36904]
+                                [vmhd @155d len:20]
+                                [dinf @169d len:36]
+                                        [dref @171d len:28]
+                                [stbl @18Dd len:36840]
+                                        [stsd @195d len:148]
+                                        [stts @229d len:24]
+                                        [stss @241d len:468]
+                                        [stsc @415d len:28]
+                                        [stsz @431d len:18084]
+                                        [stco @4AD5d len:18080]
+        [trak @9175d len:40088]
+                [tkhd @917Dd len:92]
+                [mdia @91D9d len:39988]
+                        [mdhd @91E1d len:32]
+                        [hdlr @9201d len:45]
+                        [minf @922Ed len:39903]
+                                [smhd @9236d len:16]
+                                [dinf @9246d len:36]
+                                        [dref @924Ed len:28]
+                                [stbl @926Ad len:39843]
+                                        [stsd @9272d len:91]
+                                        [stts @92CDd len:24]
+                                        [stsc @92E5d len:28]
+                                        [stsz @9301d len:19848]
+                                        [stco @E089d len:19844]
+ [free @12E0Dd len:8]
+ [mdat @12E15d len:5390399]
+
