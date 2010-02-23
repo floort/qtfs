@@ -11,7 +11,7 @@ $ qtfs.py <infile> <outfile>
 
 Technical details;
 Quicktime movies consist of so-called "atoms".
-The atom containing the index (the "moov" atom) is usualy at teh end of
+The atom containing the index (the "moov" atom) is usualy at the end of
 the file. To stream, you first need the "moov"
 
 Print the atom tree with like this:
