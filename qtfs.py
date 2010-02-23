@@ -88,7 +88,7 @@ if __name__ == "__main__":
 		print "Error: the last atom should be of type 'moov' (found '%s')" % (tree[-1][2])
 		sys.exit(1)
 	# Open the output file for writing
-	outfile = open(sys.argv[2], "r+b")
+	outfile = open(sys.argv[2], "w+b")
 	# Copy the input file, but with the 'moov' atom inserted after the
 	# 'ftyp' atom.
 	infile.seek(tree[0][0], os.SEEK_SET) # Seek to start of 'ftyp'
