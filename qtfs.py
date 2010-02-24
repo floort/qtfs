@@ -49,7 +49,7 @@ def print_atom_tree(t, ntabs = 0):
 	"""Print the atom tree t.
 	"""
 	for a in t:
-		print ntabs * "\t", "[%s @%Xd len:%d]" % (a[2], a[0], a[1])
+		print ntabs * "\t", "[%s @%X len:%X]" % (a[2], a[0], a[1])
 		if a[3]:
 			print_atom_tree(a[3], ntabs+1)
 
